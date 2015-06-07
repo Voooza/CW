@@ -6,7 +6,7 @@ public class ClumsyChef implements Chef{
     public Burger prepareBurger() {
 
         // Poor chef cannot know what to put in burger
-        return new HardToMakeBurger("YES", "NO", "YES", 7, "YES", "YES", "NO", "YES", "YES", "YES");
+        return new HardToMakeBurger("YES", "NO", "YES", 7, "YES", "YES", "NO", "YES", "YES", "NO");
 
     }
 }

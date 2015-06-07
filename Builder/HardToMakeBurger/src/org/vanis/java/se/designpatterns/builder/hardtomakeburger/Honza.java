@@ -27,42 +27,6 @@ public class Honza implements Developer{
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private void getDistractedByPiranhas(){
         try {
             Thread.sleep(2000L);
