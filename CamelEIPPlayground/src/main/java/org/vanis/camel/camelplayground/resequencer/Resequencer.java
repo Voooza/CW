@@ -17,14 +17,17 @@ public class Resequencer {
 
         @Override
         public void configure() throws Exception {
-            from("file://d:/tmp/CW/resequencer/source/?concurrentConsumers=5")
+            from("file://d:/tmp/CW/resequencer/source/")
+
                     .split()
                     .tokenizeXML("item")
                     .process(ID2HEADER_PROCESSOR)
-                    .log(LoggingLevel.INFO, "AGGREGATOR", "processing body: ${body}")
+                    .log(LoggingLevel.INFO, "Resequencer", "processing body: ${body}")
                     .resequence(header(HEADER_PARAM))
+                    .log(LoggingLevel.INFO, "Resequencer", "processing body: ${body}")
                     .aggregate(header(CORREL_PARAM), AGGREGATION_STRATEGY)
                     .completionTimeout(2000L)
+
                     .process(WRAPPING_PROCESSOR)
                     .to("file://d:/tmp/CW/resequencer/target?fileName=output.xml");
         }
